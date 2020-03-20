@@ -36,6 +36,10 @@ body {
   background-position: left;
 }
 
+.page-header a:hover { 
+  color: #164e83;
+}
+
 .header-email {
   padding-left: 30px;
   background-image: url("img/icon-email-header.svg");
@@ -181,6 +185,10 @@ body {
   text-decoration: none;
   background-repeat: no-repeat;
   background-position: left;
+}
+
+.page-footer a:hover {
+  color: #ccc;
 }
 
 .footer-email {
