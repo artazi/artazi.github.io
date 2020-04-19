@@ -1,0 +1,454 @@
+/*Задание всем элементам на странице, что ширина будет высчиитываться не от содержания, а фактически - с padding и border*/
+html {
+ -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+*, *::before, *::after {box-sizing: inherit;}
+
+/*Скрытие эллемента со страницы, но не из дерева документа*/
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0)
+}
+
+/*Шрифты*/
+@font-face {
+	font-family: "Lato Regular";
+	src: url("fonts/Lato-Regular.woff2");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Lato Bold";
+	src: url("fonts/Lato-Bold.woff2");
+	font-style: normal;
+	font-weight: bold;
+}
+@font-face {
+	font-family: "Lato Italic";
+	src: url("fonts/Lato-Italic.woff2");
+	font-style: italic;
+	font-weight: normal;
+}
+
+body {
+  font-family: "Lato Regular", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 34px;
+  color: #848789;
+  margin: 0;
+}
+
+a {color: inherit; text-decoration: none;}
+
+h1, h2, h3, p, ul, li, span {padding: 0; margin: 0;}
+
+* {outline: none;}
+
+/*Шапка*/
+header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 1600px;
+  margin: 0 auto;
+  min-height: 800px;
+  background-color: #eef0f6;
+  background-image: url(img/bg-menu.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+nav {margin-top: 35px;}
+
+.site-havigation {
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: 2px;
+  list-style: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.site-havigation li {
+  min-width: 45px;
+  min-height: 85px;
+  text-align: center;
+  padding-top: 35px;
+}
+
+.site-havigation li:nth-of-type(odd) {margin-right: 70px; position: relative;}
+.site-havigation li:nth-of-type(odd):not(#logo)::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #4d4959;
+  right: -37px;
+  bottom: 37px;
+}
+
+.site-havigation li:nth-of-type(3) {order: 4;}
+.site-havigation li:nth-of-type(4) {order: 5;}
+#logo {
+  padding-top: 0;
+  margin: 0 60px;
+  order: 3;
+}
+
+.site-havigation a {color: #4d4959;}
+.site-havigation a:hover,
+.site-havigation a:focus {opacity: 0.5;}
+.site-havigation a:active {opacity: 0.2;}
+/*Основное содержание*/
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 1600px;
+  margin: 0 auto;
+}
+
+.main-flex-item {
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+/*О нас*/
+#about-us h1 {
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 2px;
+  color: #353738;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+#about-us p {
+  font-family: "Lato Regular", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 34px;
+  color: #848789;
+  width: 1095px;
+  text-align: center;
+}
+
+/*Лучшие велики*/
+#bikes.main-flex-item {
+  display: flex;
+  min-height: 1800px;
+  flex-direction: column;
+  background-color: white;
+}
+
+.bikes-flex-item {
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bike__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.description-bg {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 65px;
+}
+
+.description-bg::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0; 
+  height: 0;
+  bottom: -10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
+
+.description-bg h3 {
+  position: relative;
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #353738;
+  margin-bottom: 15px;
+}
+
+.description-bg h3::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 41px;
+  height: 30px;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bike-1 h3::after {background-image: url(img/1_Vintage_Oliva/Icon.png);}
+.bike-2 h3::after {background-image: url(img/2_La_Boriosa/Icon.png);}
+.bike-3 h3::after {background-image: url(img/3_M._Hulot/Icon.png);}
+
+.description-bg p {text-align: justify;}
+
+.img-hover {position: relative;}
+.img-hover_S {height: 200px;}
+.img-hover_B {height: 600px;}
+.img-hover::before {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bike-1 .img-hover::before {background-image: url(img/1_Vintage_Oliva/hover-img-logo.png);}
+.bike-2 .img-hover::before {background-image: url(img/2_La_Boriosa/hover-img-logo.png);}
+.bike-3 .img-hover::before {background-image: url(img/3_M._Hulot/hover-img-logo.png);}
+
+.img-hover:hover::before,
+.img-hover:focus::before {display: block;}
+
+.img-hover:active::before,
+.img-hover:active::before {opacity: 0.5;;}
+
+/*Магазин*/
+#shop.main-flex-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 735px;
+}
+
+.shop_positioner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 533px;
+}
+.positioner__center {width: 534px;}
+
+.h-267 {height: 267px; position: relative;}
+.h-534 {height: 534px; position: relative;}
+
+.shop_positioner a::before {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(100, 194, 158, 0.8);
+}
+
+.shop-button {
+  display: none;
+  position: absolute;
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding-top: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shop-button span {position: relative;}
+.shop-button span::before {
+  content: "";
+  position: absolute;
+  width: 51px;
+  height: 30px;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(img/shop/hover-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shop_positioner a:hover::before,
+.shop_positioner a:hover .shop-button,
+.shop_positioner a:focus::before,
+.shop_positioner a:focus .shop-button {display: block;}
+
+.shop_positioner a:active::before,
+.shop_positioner a:active .shop-button {opacity: 0.5;}
+
+#shop .shop__button-bg {
+  flex-grow: 1;
+  align-self: flex-end;
+  display: flex;
+  min-height: 201px;
+  justify-content: center;
+  align-items: center;
+  background-color: #282f35;
+}
+
+.shop__button {
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  display: block;
+  padding-top: 17px;
+  width: 300px;
+  min-height: 50px;
+  border: 1px solid white;
+}
+
+.shop__button:hover,
+.shop__button:focus {
+  color: #282f35;
+  background-color: white;
+}
+
+.shop__button:active {opacity: 0.5;}
+
+/*Подписка*/
+.subscribe {background-color: white;}
+
+.subscribe__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subscribe .span {
+  font-family: "Lato Italic", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.subscribe__form {
+  height: 70px; 
+  display: flex; 
+  margin-top: 25px;
+}
+
+.form__input-search {
+  padding: 25px;
+  width: 400px;
+  height: 70px;
+  border: 1px solid #d3d7d9;
+  margin-right: 8px;
+}
+
+.form__input-submit {
+  width: 125px;
+  height: 70px;
+  padding: 0;
+  background-color: #64c29e;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/*Подвал*/
+footer {
+  min-width: 1600px;
+  min-height: 250px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 250px;
+}
+
+.copyright {
+  font-family: "Lato Italic", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+}
+
+.copyright::first-line {
+  font-family: "Lato Bold", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.social {
+  display: flex;
+  list-style: none;
+  margin-right: 155px;
+}
+.social li:not(:last-of-type) {margin-right: 15px;}
+
+.social a{
+  display: block;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+}
+
+.social a.twtr {background-image: url(img/icons/twitter.png);}
+.social a.fb {background-image: url(img/icons/facebook.png);}
+.social a.pint {background-image: url(img/icons/pinterest.png);}
+
+.my-logo {margin-right: 70px; position: relative;}
+
+.my-logo::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  top: -10px;
+  right: -60px;
+  background-image: url(img/my-logo.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+footer a:hover,
+footer a:focus {opacity: 0.5;}
+
+footer a:active {opacity: 0.2;}
