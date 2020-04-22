@@ -52,7 +52,7 @@ nav li {
 }
 nav li:last-of-type {margin-right: 0;}
 
-nav a:hover {opacity: 0.5;}
+nav a:hover {color: #FF7931;}
 nav a:active {opacity: 0.3;}
 
 .nav-logo {letter-spacing: 1px; padding: 0; margin: 0;}
@@ -85,6 +85,7 @@ main {
   background-image: url(img/slider-img.jpg);
   background-size: cover;
 }
+
 .slider::before {
   content: "";
   position: absolute;
@@ -96,6 +97,26 @@ main {
   top: 46px;
   left: 693px;
 }
+
+.slider::after {
+  content: "НОВОЕ";
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  letter-spacing: 2px;
+  position: absolute;
+  display: inline-block;
+  width: 118px;
+  height: 25px;
+  line-height: 25px;
+  background-color: #FF7931;
+  top: 0px;
+  left: 135px;
+  z-index: -1;
+}
+
+.slider:hover::after {z-index: 0;}
+
 .slider h2 {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 72px;
@@ -290,5 +311,5 @@ hr {
 .social .fb {background-image: url(img/icon/facebook_icon.svg);}
 .social .twtr {background-image: url(img/icon/twitter_icon.svg);}
 
-.social a:hover {opacity: 0.5;}
+.social a:hover {background-color: #FF7931;}
 .social a:active {opacity: 0.3;}
